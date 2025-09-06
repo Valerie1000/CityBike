@@ -49,21 +49,17 @@ if page == "Intro":
     st.title("🚴 NYC CitiBike Dashboard")
     st.subheader("Exploring patterns in New York City’s bike-sharing system")
 
-    st.markdown(
-        """
-        This dashboard uses a **sample of the CitiBike dataset** for demo purposes.  
-        It highlights key insights about how New Yorkers and visitors use CitiBike:
+    st.markdown("""
+    This dashboard shows:  
+    - When people ride the most  
+    - How weather affects bike use  
+    - The busiest stations  
+    - Where bikes are located across NYC  
+    - Who uses CitiBike most often  
+    - Ideas for improving the system  
 
-        - 📈 **Daily usage & weather trends**  
-        - 🚲 **Most popular stations**  
-        - 🗺 **Trip flows across the city**  
-        - 📍 **Where stations are concentrated**  
-        - 👥 **Member vs. casual rider behavior**  
-        - 💡 **Recommendations for expansion**
-
-        👉 Use the sidebar to explore each section.
-        """
-    )
+    Use the menu on the left to explore each section.
+    """)
 
     try:
         img = Image.open("nyc_citibike.jpg")
@@ -95,6 +91,12 @@ elif page == "Weather & Bike Usage":
 
     st.plotly_chart(fig_scatter, use_container_width=True)
 
+    st.markdown("""
+    - Rides rise as weather warms.  
+    - Most trips happen between **70–80°F**.  
+    - Beyond 80°F, demand flattens out.  
+    """)
+
     # Time series (Trips vs Temp)
     fig_weather = make_subplots(specs=[[{"secondary_y": True}]])
     fig_weather.add_trace(
@@ -125,14 +127,11 @@ elif page == "Weather & Bike Usage":
     )
     st.plotly_chart(fig_weather, use_container_width=True)
 
-    st.markdown(
-        """
-        **Key insights:**  
-        - Most rides happen in the **70–80°F range** (highlighted in red).  
-        - Warmer months see much higher usage, while winter ridership drops sharply.  
-        - This shows a clear **seasonal pattern** that can guide bike allocation.
-        """
-    )
+    st.markdown("""
+    - Summer months see the **highest ridership**.  
+    - Winter brings a sharp **drop in trips**.  
+    - Clear seasonal patterns help plan bike supply.  
+    """)
 
 # -----------------
 # Popular Stations
@@ -163,7 +162,6 @@ elif page == "Popular Stations":
 
     st.markdown(
         """
-        **Key insight:**  
         - The busiest stations are clustered in **Manhattan**, especially near **Central Park**, **Midtown**, and **Downtown transit hubs**.  
         - Outer boroughs show far fewer high-traffic stations, suggesting room for expansion.
         """
@@ -184,7 +182,6 @@ elif page == "Trip Routes Map":
 
     st.markdown(
         """
-        **How to read the map:**  
         - **Bright lines** show the busiest bike routes.  
         - **Green dots = trip starts**, **red dots = trip ends**.  
         - Single green dots mark stations used as both start & end.  
@@ -197,7 +194,7 @@ elif page == "Trip Routes Map":
 # Station Distribution
 # -----------------
 elif page == "Station Distribution":
-    st.subheader("📍 CitiBike Station Density")
+    st.subheader("📍 Where are CitiBike stations located?")
 
     # Percentile cutoff
     percentile_cutoff = st.sidebar.slider(
@@ -258,7 +255,6 @@ elif page == "Station Distribution":
 
     st.markdown(
         f"""
-        **Insights:**  
         - Left: All stations (blue).  
         - Right: Top {100 - percentile_cutoff}% busiest stations (red).  
         - Red stations are concentrated in **Manhattan** and near major hubs.  
@@ -270,7 +266,7 @@ elif page == "Station Distribution":
 # Customer Insights
 # -----------------
 elif page == "Customer Insights":
-    st.subheader("👥 How Riders Use CitiBike")
+    st.subheader("👥 Who uses CitiBike?")
 
     # Trips by bike type
     ride_counts = df["rideable_type"].value_counts().reset_index()
@@ -319,15 +315,12 @@ elif page == "Customer Insights":
     )
     st.plotly_chart(fig_grouped, use_container_width=True)
 
-    st.markdown(
-        """
-        **Insights:**  
-        - **Classic bikes** are the most used overall.  
-        - **Members (~78%)** dominate usage, with short trips (commuting/errands).  
-        - **Casual riders (~22%)** take longer rides, often for leisure or tourism.  
-        - **E-bikes** shorten travel times but are less common, likely due to cost or limited supply.  
-        """
-    )
+    st.markdown("""
+    - **Members (commuters)** take most rides, usually short trips.  
+    - **Casual riders** (tourists/leisure) take fewer but **longer rides**.  
+    - **Classic bikes** dominate overall, while **e-bikes are used less often** but help with longer or uphill trips.  
+    """)
+
 
 # -----------------
 # Recommendations
@@ -348,10 +341,12 @@ elif page == "Recommendations":
 
     st.markdown(
         """
-        ### Key Recommendations  
-        - **Adjust for seasons**: Scale down fleet by ~40–60% during **Nov–Apr**, expand for **May–Oct** when demand peaks.  
-        - **Expand to underserved areas**: Add stations in **Queens and Staten Island**.  
-        - **Boost busy hubs**: Increase bike supply near **Central Park, Midtown, and major transit hubs**.  
-        - **Support commuters**: Place more stations near **schools and subway entrances** to serve short, frequent trips.  
-        """
+        ### Key Suggestions for the Future  
+        - **Scale supply in winter**: reduce bikes by about **40–60% from Nov–Apr**, then expand again for the busy summer season.  
+        - **Expand to underserved areas**: add stations in **Queens and Staten Island**.  
+        - **Boost busy hubs**: keep more bikes available near **Central Park, Midtown, and major subway stations**.  
+        - 🚲 **Match rider needs**:  
+            - More **classic bikes** for everyday commuters.  
+            - More **e-bikes near hilly areas and tourist hotspots** for longer leisure rides.  
+        """ 
     )

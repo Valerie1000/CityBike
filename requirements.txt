@@ -1,5 +1,6 @@
-streamlit
-pandas
-numpy
-plotly
+pstreamlit==1.39.0
+pandas==2.2.2
+numpy>=1.26.0
+plotly==5.24.1
 pillow
+statsmodels
