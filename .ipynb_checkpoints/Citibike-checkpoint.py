@@ -178,7 +178,7 @@ elif page == "Trip Routes Map":
             html_data = f.read()
         st.components.v1.html(html_data, height=800)
     except:
-        st.info("Upload `data/kepler_map.html` to display the interactive map.")
+        st.info("Upload `kepler_map.html` to display the interactive map.")
 
     st.markdown(
         """
