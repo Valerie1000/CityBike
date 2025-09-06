@@ -153,7 +153,7 @@ elif page == "Popular Stations":
         color_continuous_scale="Blues",
         title="Top 10 Busiest Stations",
     )
-    fig_top10.update_traces(texttemplate="%{text:,}", textposition="outside")
+    fig_top10.update_traces(texttemplate="%{text:,}", textposition="inside")
     fig_top10.update_layout(
         xaxis_tickangle=45, height=500, showlegend=False, yaxis_title="Trips"
     )
