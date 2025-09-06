@@ -1,7 +1,5 @@
-streamlit>=1.32.0
-pandas>=2.2.2
-numpy>=1.26.0
-plotly>=5.22.0
-streamlit-keplergl
-Pillow>=10.0.0
-numerize
+streamlit
+pandas
+numpy
+plotly
+pillow
