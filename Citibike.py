@@ -174,7 +174,7 @@ elif page == "Trip Routes Map":
     st.subheader("🗺️ Popular CitiBike Routes in NYC")
 
     try:
-        with open("data/kepler_map.html", "r", encoding="utf-8") as f:
+        with open("kepler_map.html", "r", encoding="utf-8") as f:
             html_data = f.read()
         st.components.v1.html(html_data, height=800)
     except:
@@ -280,7 +280,7 @@ elif page == "Customer Insights":
         title="🚲 Trips by Bike Type",
         labels={"count": "Trips", "rideable_type": "Bike Type"},
     )
-    fig_rideable.update_traces(texttemplate="%{text:,}", textposition="outside")
+    fig_rideable.update_traces(texttemplate="%{text:,}", textposition="inside")
     fig_rideable.update_layout(showlegend=False, yaxis_title="Trips", height=500)
     st.plotly_chart(fig_rideable, use_container_width=True)
 
