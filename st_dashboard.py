@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 from streamlit_keplergl import keplergl_static
 from keplergl import KeplerGl
 from datetime import datetime as dt
+from numerize.numerize import numerize
+from PIL import Image
 
 # -----------------
 # Page config
@@ -80,7 +82,7 @@ st.plotly_chart(fig_dailytrips_temp, use_container_width=True)
 # -----------------
 
 
-path_to_html = r"C:\Users\valev\CityBike\bike_trips_map.html"
+path_to_html = r"C:\Users\valev\CityBike\kepler.gl.html"
 
 
 # Read file and keep in variable
