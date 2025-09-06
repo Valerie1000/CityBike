@@ -1,8 +1,7 @@
-streamlit>=1.25
-pandas>=2.0
-numpy>=1.26
-plotly>=5.15
+streamlit>=1.32
+pandas>=2.2.2
+numpy>=1.26.0
+plotly>=5.22.0
 keplergl
 streamlit-keplergl
-numerize
 Pillow
