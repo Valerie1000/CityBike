@@ -174,7 +174,7 @@ elif page == "Trip Routes Map":
     st.subheader("🗺️ Popular CitiBike Routes in NYC")
 
     try:
-        with open("kepler_map.html", "r", encoding="utf-8") as f:
+        with open("kepler.gl.html", "r", encoding="utf-8") as f:
             html_data = f.read()
         st.components.v1.html(html_data, height=800)
     except:
