@@ -62,10 +62,10 @@ if page == "Intro":
     """)
 
     try:
-        img = Image.open("nyc_citibike.jpg")
-        st.image(img, use_container_width=True)
+        myImage = Image.open("nyc_citibike.jpg")  # optional local image
+        st.image(myImage, use_column_width=True)
     except:
-        st.info("Upload a file named `nyc_citibike.jpg` to display an image here.")
+        st.info("Upload a NYC CitiBike image named `nyc_citibike.jpg` to display it here.")
 
 # -----------------
 # Weather & Bike Usage
