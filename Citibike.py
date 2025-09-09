@@ -62,7 +62,7 @@ if page == "Intro":
     """)
 
     try:
-        myImage = Image.open("nyc_citibike.jpg")  # optional local image
+        myImage = Image.open("Images/nyc_citibike.jpg")  # optional local image
         st.image(myImage, use_column_width=True)
     except:
         st.info("Upload a NYC CitiBike image named `nyc_citibike.jpg` to display it here.")
@@ -329,7 +329,7 @@ elif page == "Recommendations":
     st.header("💡 Recommendations for CitiBike Expansion")
 
     try:
-        bikes = Image.open("recs_page.png")
+        bikes = Image.open("Images/recs_page.png")
         st.markdown(
             "<div style='text-align: center;'>",
             unsafe_allow_html=True,
